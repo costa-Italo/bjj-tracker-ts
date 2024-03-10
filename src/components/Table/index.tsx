@@ -3,27 +3,19 @@
         TableBody,
         TableCaption,
         TableCell,
-        TableHead,
         TableHeader,
         TableRow,
     } from "@/components/ui/table"
     
     const TableStudents = () => {
         return (
-            <Table className="mx-auto text-center text-white">
+            <Table className="">
                 <TableCaption></TableCaption>
             <TableHeader className="text-center">
-                <TableRow className="text-center text-white"> 
-                    <TableHead className="text-center">Ranking</TableHead>
-                    <TableHead className="text-center">Nome</TableHead>
-                    <TableHead className="text-center">Aulas</TableHead>
-                    <TableHead className="text-center">Aproveitamento</TableHead>
-                    <TableHead className="text-center">Status</TableHead>
-                    <TableHead className="text-center">Ações</TableHead>
-                </TableRow>
-            </TableHeader>
-    <TableBody>
-        <TableRow className="text-center">
+                
+            </TableHeader> 
+    <TableBody className="text-xs text-gray-400 text-center">
+        <TableRow>
             <TableCell className="font-medium">1º</TableCell>
             <TableCell className="text-center">Italo</TableCell>
             <TableCell className="text-center">45</TableCell>
