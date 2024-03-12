@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 
 import { Input } from "@/components/ui/input"
 import { Button } from "../ui/button";
@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 interface InputNameProps {
     onAddStudent: (name: string) => void;
 }
-
 
 const InputName: React.FC<InputNameProps> = ({ onAddStudent }) => {
     const [name, setName] = useState("");
@@ -19,6 +18,13 @@ const InputName: React.FC<InputNameProps> = ({ onAddStudent }) => {
         onAddStudent(name)
         setName("")
     }
+
+    const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+            onAddStudent(name);
+            setName("");
+        }
+    }
     return (
         <div className="flex justify-center items-center">
             <Input 
@@ -26,6 +32,7 @@ const InputName: React.FC<InputNameProps> = ({ onAddStudent }) => {
                 placeholder="Digite o nome de um aluno" 
                 value={name}
                 onChange={handleChange}
+                onKeyPress={handleKeyPress}
                 className="m-4 w-80 border-none outline-none cursor-pointer"/>
             <Button onClick={handleClick} className="font-bold">Cadastrar Aluno</Button>
         </div> 
