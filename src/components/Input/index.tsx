@@ -35,6 +35,7 @@ const InputName: React.FC<InputNameProps> = ({ onAddStudent }) => {
                 onKeyPress={handleKeyPress}
                 className="m-4 w-80 border-none outline-none cursor-pointer"/>
             <Button onClick={handleClick} className="font-bold">Cadastrar Aluno</Button>
+            <Button onClick={handleClick} className="font-bold ml-4">Atualizar</Button>
         </div> 
     )
 }
