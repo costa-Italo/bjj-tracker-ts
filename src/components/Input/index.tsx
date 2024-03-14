@@ -14,9 +14,13 @@ const InputName: React.FC<InputNameProps> = ({ onAddStudent }) => {
         setName(event.target.value);
     };
 
-    const handleClick = () => {
-        onAddStudent(name)
-        setName("")
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        if (name.trim() !== "") {
+            onAddStudent(name)
+            setName("")
+        }
+        
     }
 
     const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -29,6 +33,7 @@ const InputName: React.FC<InputNameProps> = ({ onAddStudent }) => {
         <div className="flex justify-center items-center">
             <Input 
                 type="text"
+                required
                 placeholder="Digite o nome de um aluno" 
                 value={name}
                 onChange={handleChange}
